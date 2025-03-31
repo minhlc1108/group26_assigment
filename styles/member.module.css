@@ -1,0 +1,46 @@
+.card {
+  width: 250px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.icon_facebook {
+  color: #1877f2; /* Màu Facebook */
+  transition: transform 0.2s;
+}
+
+.icon_facebook:hover {
+  transform: scale(1.2);
+  color: #0a66c2; /* Màu xanh khi hover */
+}
+
+.icon_email {
+  color: #f21818; /* Màu Facebook */
+  transition: transform 0.2s;
+}
+
+.icon_email:hover {
+  transform: scale(1.2);
+  color: #c20a0a; /* Màu xanh khi hover */
+}

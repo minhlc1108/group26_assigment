@@ -3,7 +3,7 @@
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,11 +20,11 @@ const Sidebar = () => {
     { id: 10, title: "Bài tập tuần 10", href: "/assignment10" },
   ];
   const pathname = usePathname();
-
-  return (<div className='h-full'>
+ 
+  return <div className='h-full'>
   {/* Mobile Header */}
   <header className="lg:hidden p-4 bg-white border-b border-gray-200 flex justify-between items-center fixed w-full top-0 z-50">
-    <Link href="/" className="text-xl font-semibold text-black">Nhóm 21</Link>
+    <Link href="/" className="text-xl font-semibold text-black">Nhóm 26</Link>
     <button
       onClick={() => setIsOpen(!isOpen)}
       className="py-2 px-3 bg-gray-800 text-white rounded-lg hover:bg-gray-950"
@@ -43,7 +43,7 @@ const Sidebar = () => {
     <div className="relative flex flex-col h-full max-h-full">
       {/* Desktop Header */}
       <div className="p-4 bg-white border-b border-gray-200 hidden lg:block">
-        <Link href="/" className="text-xl font-semibold text-black">Nhóm 21</Link>
+        <Link href="/" className="text-xl font-semibold text-black">Nhóm 26</Link>
       </div>
 
       {/* Navigation */}
@@ -51,7 +51,7 @@ const Sidebar = () => {
         <div className="pb-0 px-2 w-full flex flex-col flex-wrap">
           <ul className="space-y-1">
             {assignments.map(assignment => {
-              const isActive = pathname.startsWith(`${assignment.href}/`);
+              const isActive = pathname === assignment.href
               return (
                 <li key={assignment.id}>
                   <Link
@@ -83,7 +83,6 @@ const Sidebar = () => {
     />
   )}
 </div>
-);
 };
 
 export default Sidebar;
