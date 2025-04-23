@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { toast } from "react-toastify";
+import { Button } from "@/components/ui/button";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -29,7 +30,14 @@ export default function LoginPage() {
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <h2 className="text-2xl font-semibold text-center mb-6">{session ? "Đăng nhập thành công" : "Đăng nhập"}</h2>
-        {session ? <div>Xin chào bạn {session.user?.email} <button onClick={() => signOut()} className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600 transition">Thoát</button></div>
+        {session ? <div className="flex flex-col justify-center items-center gap-2">
+          <h3>Xin chào bạn <span className="text-blue-700">{session.user?.email}</span></h3>
+           <Button onClick={ async () => {
+                 await signOut()
+                 toast.success("Đăng xuất thành công!")
+            }} variant="outline" className="items-center" size={"lg"} >
+            Thoát</Button>
+           </div>
         :  
         <form onSubmit={handleLogin} className="space-y-4">
           <div>

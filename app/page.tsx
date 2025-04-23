@@ -6,7 +6,7 @@ export default function Home() {
      <Image
          src="/images/anh1.jpg"
          alt="Picture of the author"
-         objectFit="cover"
+         className="object-cover"
          fill
          quality={100}
      />
