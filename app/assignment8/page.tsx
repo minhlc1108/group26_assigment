@@ -10,7 +10,6 @@ export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-  const router = useRouter();
   const { data: session } = useSession()
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,7 +32,7 @@ export default function LoginPage() {
         {session ? <div className="flex flex-col justify-center items-center gap-2">
           <h3>Xin chào bạn <span className="text-blue-700">{session.user?.email}</span></h3>
            <Button onClick={ async () => {
-                 await signOut()
+                 await signOut({redirect: false})
                  toast.success("Đăng xuất thành công!")
             }} variant="outline" className="items-center" size={"lg"} >
             Thoát</Button>
