@@ -1,20 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import Sidebar from "@/components/assignment7/Sidebar";
-import Header from "@/components/assignment7/Header";
-import Content from "@/components/assignment7/Content";
+import Sidebar from "../../components/assignment7/Sidebar";
+import Header from "../../components/assignment7/Header";
+import Content from "../../components/assignment7/Content";
 
-export default function Home() {
+export default function Assignment7Page() {
   const [showSidebar, setShowSidebar] = useState(true);
 
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div style={{ display: "flex", minHeight: "100vh" }}>
       {showSidebar && <Sidebar />}
-      <div style={{ flex: 1, display: "flex", flexDirection: "column" }}>
-        <Header toggleSidebar={() => setShowSidebar(!showSidebar)} />
+      <main style={{ flex: 1, padding: "20px" }}>
+        <Header toggleSidebar={() => setShowSidebar(prev => !prev)} />
         <Content />
-      </div>
+      </main>
     </div>
   );
 }
